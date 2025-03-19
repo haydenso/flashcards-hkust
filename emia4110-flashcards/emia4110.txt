@@ -1,0 +1,186 @@
+What is a Multi-layer Perceptron (MLP)?	A mathematical model inspired by biological neurons, constructed by stacking multiple perceptrons in layers
+What are the key components of a perceptron?	Input, Weight, Bias, Activation Function, Output
+What is the task defined for the MLP journey in digit classification?	Classify digit images from the MNIST dataset with 784-dim pixel input and categorical class output in [0,9]
+How does MLP relate to the human brain analogy?	Perceptron adjusts weights like synapses in the brain strengthen or weaken to learn
+What are activation functions?	Mathematical non-linear operations applied to a perceptron’s input to determine its output, critical for learning complex data
+Name three popular activation functions and their uses.	Sigmoid (binary classification, normalized output [0,1]), ReLU (deep learning, computational efficiency), Softmax (multi-class classification, probability output summing to 1)
+What is the input for the digit classification MLP?	768-Dimension vector of image pixel values
+What is the classifier design for digit classification MLP?	MLP with 768-D input and 10-D output, each output node indicating class probability
+What activation functions are used in the digit classification MLP?	Sigmoid for hidden layers, Softmax for the output layer
+What is forward propagation?	Computes the network’s prediction for a given input, defining the overall information flow
+What does forward propagation look like for digit classification?	Input(784) -> Linear(512)+ReLU (3 hidden layers) -> Linear(10)+Softmax -> Output Probability
+What is the purpose of designing forward propagation?	It is a critical part of deep learning research, referred to as “model structure design”
+What is a loss function?	Quantifies the difference between predicted outputs and actual target values, guiding weight updates
+Name three types of loss functions and their purposes.	Mean Squared Error (MSE) for regression, Cross-Entropy (CE) for multi-class classification, Binary Cross-Entropy (BCE) for multi-label classification
+What loss function is used for digit classification?	Cross-Entropy (CE) Loss
+What are the steps in model training for digit classification?	Load a batch of data, Forward propagation, Compute CE Loss, Get Gradient (backward), Update Gradient
+What is a batch in model training?	A subset of training data used for batch-wise training to balance efficiency and update granularity
+What is an iteration in model training?	Using one batch of data to update the model
+What is an epoch in model training?	One pass of all batches through the training set, typically repeated until convergence
+What is backpropagation?	Adjusting weights based on loss using gradients from forward pass, loss computation, model differentiation, and weight update
+What optimizer is commonly used in backpropagation?	Stochastic Gradient Descent (SGD) estimates gradients from small batches with a learning rate
+What is the role of the learning rate in SGD?	Determines step size; large LR may cause divergence, small LR slows optimization
+What are improved optimizers for SGD?	Adam, Adagrad, RMSprop; Adam is the most popular
+What is dropout and its purpose?	Randomly drops nodes during training to prevent overfitting, controlled by a dropout rate
+What are the steps in recap of model training?	Load batch, Forward propagation, Compute Loss, Get Gradient (backward), Update Gradient
+What is ResNet and its significance?	Deep Residual Network; achieved 4.5% top-5 error on ImageNet in 2015, far ahead of other methods
+What problem does ResNet address?	Gradient vanishing in deep networks, where gradients struggle to influence top layers
+What is a residual block in ResNet?	Core structure with skip connections that bypass layers, learning residual functions to ease training
+What are popular ResNet variants?	ResNet-18, ResNet-34 (smaller problems), ResNet-50 (balanced), ResNet-101, ResNet-152 (high-capacity)
+What is a problem of MLP for spatial data?	Inefficiency in handling 2D structure of images, treating data as a flat vector
+What is a convolution layer in CNN?	Uses a kernel to compute 2D output via multiplication and summation, sharing weights across regions
+What are kernel size and stride size in CNN?	Kernel size determines input area used, stride size determines filter movement and output size
+What is the purpose of pooling layers in CNN?	Reduce parameters, pixel redundancy, and increase receptive field; types include Max Pooling and Average Pooling
+Why is RNN needed?	To model sequential data (e.g., audio, text) where MLP fails due to high feature combinations
+What is the forward propagation of RNN?	Shares weights over time steps, using state and new input recurrently to produce output
+What is LSTM in RNN?	Long Short-Term Memory Network; uses gates (Forget, Input, Output) to control information flow over sequences
+What is a drawback of RNN?	Slow for long sequences due to step-by-step prediction, inefficient for training and inference
+Why is Transformer needed?	Efficiently models sequential data (e.g., machine translation) without step-by-step prediction
+What does Transformer use for sequence modeling?	Attention mechanism to focus on relevant information directly
+What is transfer learning?	Transfers knowledge from a related task to improve learning in a new task with less data
+What are the steps of transfer learning?	Pretraining on large-scale generic data, Fine-tuning on small-scale specific task data
+Name three popular pre-trained architectures.	VGG (CNN for image tasks), ResNet (deep CNN), BERT (Transformer for NLP)
+Question	Answer
+What is the course code and title?	EMIA 4110 - Practical Machine Learning
+Who is the instructor for EMIA 4110?	Wenhan Luo
+What is the date associated with Unsupervised Learning Part B content?	03/15/2025
+What are the main topic weeks for Machine Learning Theories and Algorithms?	Introduction to Machine Learning, Regression Methods (Week 1), Supervised Learning and Classification (Week 2), Unsupervised Learning (Week 3), Deep Learning (Weeks 4-5), Generative Models (Weeks 5-6)
+What machine learning frameworks are covered and in which weeks?	Scikit-learn + Midterm Quiz (Week 7), PyTorch (Week 8)
+What are the machine learning applications covered and their corresponding weeks?	Solving Engineering Problems (Week 9), Solving Science Problems (Week 10), Solving Business Problems (Week 11), Art Generation (Week 12), How to build ChatGPT with Generative Modelling (Week 13)
+What are the main topics in the Unsupervised Learning Outline?	Clustering, Evaluation, K-Means Clustering, Hierarchical Clustering, Data Normalization, Association Rule Learning, The Apriori Algorithm, Evaluation, Dimensionality Reduction, PCA, LDA
+What is Unsupervised Learning?	Algorithms that identify patterns in data without labels, automatically finding data differences
+What is a key feature of unsupervised learning compared to supervised learning?	Label-free
+What are the three main types of Unsupervised Learning?	Clustering, Association Rule Learning, Dimensionality Reduction
+What is Clustering?	Partitioning a dataset into groups where instances within each group are more similar to each other
+What is Association Rule Learning?	Discovering interesting relations between variables in large databases without finding causality
+What are some applications of Association Rule Learning?	Market basket analysis (supermarkets, online shopping), telecommunications (service bundles), social network analysis, risk analysis
+What is Dimensionality Reduction?	Reducing the number of variables to consider, including feature selection and feature extraction
+What are the two goals of clustering?	Internal Compactness, External Separation
+What is Inertia in clustering evaluation?	The sum of distances of all points within a cluster from its centroid; smaller is better
+What is the Dunn Index in clustering evaluation?	The ratio of the smallest inter-cluster distance to the largest intra-cluster distance; larger is better
+What does K-Means Clustering do?	Classifies n samples into k < n clusters, assigning each sample to the cluster with the nearest mean
+What are the steps of the K-Means algorithm?	Choose k, Initialize k centroids randomly, Assign points to nearest centroid, Recalculate centroids, Repeat until convergence
+What are the stopping criteria for K-Means?	Centroid convergence, no change in labels, maximum iterations reached
+Name two distance measures used in K-Means.	Euclidean Distance (L2 Norm), Manhattan Distance (L1 Norm)
+How is the right k chosen in K-Means?	Elbow curve: plot evaluation metric (e.g., inertia) vs. k, choose where decrease slows significantly
+What is Hierarchical Clustering?	Builds a hierarchy of clusters using an agglomerative (bottom-up) or divisive (top-down) approach, producing a dendrogram
+What are advantages of Hierarchical Clustering over K-Means?	No need to specify number of clusters, visualization via dendrogram, captures cluster hierarchy
+What are the steps in Agglomerative Hierarchical Clustering?	Initialize each sample as a cluster, Calculate proximity matrix, Merge closest clusters, Update proximity matrix, Repeat until one cluster
+Name four methods to update the proximity matrix in Hierarchical Clustering.	Single linkage (minimum), Complete linkage (maximum), Average linkage, Centroid linkage
+What is Divisive Hierarchical Clustering?	Top-down approach: Start with one cluster, split based on largest distance, update distances, repeat until termination
+What are termination conditions for Divisive Hierarchical Clustering?	Reaching expected number of clusters, longest linkage below a threshold
+Why is Data Normalization crucial for clustering?	Ensures equal importance of features by adjusting for varying scales, preventing wrong distance computations
+Name two data normalization techniques.	Min-Max scaling, Standardization
+What does Min-Max scaling do?	Scales each attribute to a range (e.g., [0,1]) separately
+What does Standardization do?	Transforms data to have a mean of 0 and standard deviation of 1
+What are the key concepts for Association Rule Learning?	Support, Confidence, Lift, Strong Rules
+What is Support in Association Rule Learning?	Measure of how frequently items appear in the dataset, must exceed a minimum threshold
+What is Confidence in Association Rule Learning?	Measure of reliability of a rule (if X then Y), the conditional probability of Y given X
+What is Lift in Association Rule Learning?	Measures strength of a rule over random co-occurrence; >1 positive, =1 independent, <1 negative
+What are Strong Rules in Association Rule Learning?	Rules meeting minimum support and confidence/lift thresholds, considered useful for decision-making
+What does the Apriori Algorithm do?	Mines frequent item sets and relevant association rules from a dataset
+What is the Apriori Property?	All subsets of a frequent itemset must be frequent (Join); if an itemset is infrequent, its supersets are too (Pruning)
+What are the steps of the Apriori Algorithm workflow?	Initialization (find frequent k=1 item sets), Iteration (generate and prune candidate item sets), Termination, Strong Rule Generation
+In the Apriori Algorithm example with 60% support, which items are kept at k=1?	Bread (80%), Milk (80%), Diaper (80%), Beer (60%)
+In the Apriori Algorithm example with 60% support, which pairs are kept at k=2?	Bread,Milk (60%), Bread,Diaper (60%), Milk,Diaper (60%), Diaper,Beer (60%)
+Why does the Apriori Algorithm terminate at k=3 in the example?	No frequent item sets meet the 60% support threshold (e.g., Bread,Milk,Diaper = 40%)
+How are strong rules generated in the Apriori Algorithm?	Divide frequent item sets into disjoint subsets, evaluate strength with confidence or lift
+What are disadvantages of the Apriori Algorithm?	Computationally expensive (multiple database scans), combinatorial explosion with large datasets
+How is the Apriori Algorithm evaluated?	Support (frequency), Confidence (likelihood of Y given X), Lift (strength vs. random co-occurrence)
+Why is Principal Component Analysis (PCA) needed?	To reduce redundant dimensions in data features due to correlations or lack of expressiveness
+How does PCA identify redundant dimensions?	Checks variance over different directions; low variance indicates redundancy
+What are the basic ideas of PCA?	Identify orthogonal directions, check variance, keep high-variance directions, discard others, transform data to new axes
+What are the steps in PCA calculations?	Center data, compute covariance matrix, eigenvalue decomposition, choose dominant eigenvectors, transform data
+What does eigenvalue decomposition do in PCA?	Finds orthogonal directions (eigenvectors) and their variance (eigenvalues)
+How is the number of PCA components chosen?	Take top eigenvectors with decreasing eigenvalues, determined by accumulated variance
+What is the projection formula in PCA?	z_n ≈ W_K^T x_n, where W_K is the projection matrix of top K eigenvectors
+Why is Linear Discriminant Analysis (LDA) needed?	Reduces dimensionality while ensuring good class separation, using class labels (supervised)
+What are the two matrices defined in LDA?	Within-Class Scatter Matrix (compactness), Between-Class Scatter Matrix (separation)
+What is the optimization goal of LDA?	Maximize the ratio of between-class scatter to within-class scatter determinants
+How is LDA calculated?	Compute scatter matrices, generalized eigenvalue decomposition, choose dominant eigenvectors, transform data
+What is the projection formula in LDA?	z_n ≈ W^T x_n, where W is formed by eigenvectors of dominant eigenvalues
+What is Regression?	Algorithms that predict a continuous numerical value (e.g., temperatures, prices)
+What is Classification?	Algorithms that predict discrete outputs, typically classes or categories (e.g., spam or not spam)
+Is face recognition regression or classification?	Classification (predicts discrete categories, e.g., identity)
+What is the typical format of data used for ML?	A data sample is (X, Y) where X is a vector of raw attributes and Y is the class or regression target
+Give examples of regression tasks.	Predict salary from experience, revenue from population, GPA from study hours
+Can regression have multi-dimensional input and output?	Yes, e.g., Depth Estimation (multi-dim in, single-dim out), Pose Estimation (multi-dim in, multi-dim out)
+Name the traditional types of regression models.	Linear Regression (Simple and Multiple), Polynomial Regression, Regularization Methods (Ridge, Lasso)
+What is Simple Linear Regression?	Fits a straight line to predict a dependent variable (e.g., salary) from one independent variable (e.g., years of experience)
+What is the equation for Simple Linear Regression?	y = β₀ + β₁x + ε, where y is the dependent variable, x is the independent variable, β₀ is the intercept, β₁ is the slope, ε is the error
+How is Simple Linear Regression solved?	Ordinary Least Squares (OLS) minimizes the sum of squared residuals (SSR)
+What does OLS do in Simple Linear Regression?	Minimizes SSR = Σ(yᵢ - (β₀ + β₁xᵢ))² by solving partial derivatives of β₀ and β₁ set to zero
+What is Multiple Linear Regression?	Extends simple linear regression to predict a dependent variable using two or more independent variables
+What is the equation for Multiple Linear Regression?	y = β₀ + β₁x₁ + β₂x₂ + ... + βₙxₙ + ε, where x₁, x₂, ... are features, β₁, β₂, ... are coefficients
+How is Multiple Linear Regression expressed in matrix form?	Y = Xβ + ε, where Y is the dependent variable vector, X is the feature matrix, β is the coefficient vector, ε is the error vector
+How is Multiple Linear Regression solved?	OLS minimizes SSR, leading to β = (XᵀX)⁻¹XᵀY
+What is Polynomial Regression?	Models the relationship between variables as an nth-degree polynomial to capture non-linear associations
+How does Polynomial Regression differ from Linear Regression?	Extends linear regression by adding polynomial terms, allowing the best-fit line to bend
+How is Polynomial Regression solved?	In matrix form Y = Xβ + ε, minimizing SSR leads to β = (XᵀX)⁻¹XᵀY, where X includes polynomial terms
+What is a consideration in Polynomial Regression?	Higher-degree polynomials can lead to overfitting
+How is the appropriate polynomial degree chosen?	Cross-Validation or Regularization
+What is Ridge Regression?	Adds L2-norm penalty (λ||β||₂²) to OLS to regularize coefficients and prevent overfitting
+Why does Ridge Regression help with overfitting?	Encourages smaller, diffuse coefficients to capture trends rather than noise
+What does the tuning parameter λ do in Ridge Regression?	Controls penalty strength; small λ is closer to OLS, large λ reduces variance but increases bias
+How is Ridge Regression solved?	β = (XᵀX + λI)⁻¹XᵀY, where λI is the penalty term added to the matrix
+What is Lasso Regression?	Adds L1-norm penalty (λ||β||₁) to OLS to regularize coefficients and promote sparsity
+How does Lasso Regression differ from Ridge Regression?	Uses L1 norm instead of L2, generating sparser solutions to identify key factors
+What does sparsity mean in Lasso Regression?	Few large coefficients, others close to zero, helping select important features
+How is λ chosen in Lasso Regression?	Via cross-validation to balance variance and sparsity
+How is Lasso Regression solved?	No closed-form solution; solved iteratively using coordinate descent (e.g., in scikit-learn)
+What is Supervised Learning?	Algorithms that learn from labeled training data to predict labels for new data
+What are the two main tasks of Supervised Learning?	Regression (continuous outputs), Classification (categorical outputs)
+What is Binary Classification?	Predicts one of two classes (e.g., spam or not spam)
+What is Multi-class Classification?	Predicts one of multiple exclusive classes (e.g., face recognition)
+What is Multi-label Classification?	Predicts multiple labels simultaneously (e.g., text categorization)
+What is a Confusion Matrix?	A table showing classification results: TP (True Positive), FP (False Positive), FN (False Negative), TN (True Negative)
+What is Accuracy in classification?	Ratio of correctly predicted samples (TP + TN) to total samples
+What is Precision in classification?	Ratio of correctly predicted positives (TP) to total predicted positives (TP + FP)
+What is Recall in classification?	Ratio of correctly predicted positives (TP) to all actual positives (TP + FN)
+What is the F1 Score in classification?	Weighted average of Precision and Recall, useful for imbalanced datasets
+How are metrics computed for multi-class classification?	Overall accuracy from diagonal of confusion matrix; Precision, Recall, F1 per class
+How are metrics computed for multi-label classification?	Confusion matrix per label, calculating Accuracy, Precision, Recall, F1 for each
+Name typical supervised learning methods for classification.	Logistic Regression, Naive Bayes, k-Nearest Neighbors (k-NN), Decision Trees, Support Vector Machines (SVM)
+What is Logistic Regression?	Predicts binary outcomes with probabilities (0 to 1) using a logistic function
+How is Logistic Regression solved?	Maximum Likelihood Estimation (not OLS) estimates parameters
+What is k-Nearest Neighbors (k-NN)?	A simple, non-parametric algorithm predicting class by majority vote of k nearest neighbors
+How does k-NN work?	Choose k and distance metric, find k nearest neighbors, predict class by majority vote
+What affects the choice of k in k-NN?	Small k: sensitive to noise; Large k: smoother but may include irrelevant points; chosen via cross-validation
+Name three distance measures in k-NN.	Euclidean Distance (L2 Norm), Manhattan Distance (L1 Norm), Cosine Similarity
+What are drawbacks of k-NN?	Computationally intensive (distance to all samples), sensitive to irrelevant features
+What is Naive Bayes?	A classifier based on Bayes’ Theorem, assuming feature independence
+What are key features of Naive Bayes?	Simple, fast, performs well with small data; used in spam filtering, sentiment analysis
+What is Bayes’ Theorem?	P(C|X) = P(X|C)P(C)/P(X), where P(C|X) is posterior, P(X|C) is likelihood, P(C) is prior, P(X) is marginal
+Give a real-world example of Bayes’ Theorem.	P(COVID|Positive Test) = P(Positive Test|COVID)P(COVID)/P(Positive Test)
+What is the naive assumption in Naive Bayes?	Features are independent given the class, simplifying P(X|C) to ∏P(xᵢ|C)
+How is Naive Bayes solved?	Compute P(C) from label counts, model P(xᵢ|C) with parametric distributions (e.g., Gaussian)
+Name typical supervised learning methods for regression.	Traditional Regression Methods, DNN-based Methods
+Name typical supervised learning methods for classification.	Logistic Regression, k-Nearest Neighbors (k-NN), Naive Bayes, Decision Trees, Support Vector Machines (SVM)
+What is a Decision Tree?	A hierarchical tree-like model that automates decision-making based on data conditions
+What are the components of a Decision Tree?	Root Node (starting point), Branches (decision rules), Leaves (final outcomes)
+What are key features of Decision Trees?	Interpretability (easy to understand), Non-Parametric (no data distribution assumptions), Feature Selection (important features at the top)
+Name two algorithms for building Decision Trees.	ID3 (Iterative Dichotomiser 3), C4.5
+How does ID3 build a Decision Tree?	Iteratively selects the most powerful feature for classification using Entropy and Information Gain until all data is classified or stopping condition is met
+What is Entropy in ID3?	A measure of disorder or uncertainty, calculated as H(S) = -Σ(pᵢ log₂ pᵢ), where pᵢ is the probability of class i
+What does Entropy measure in ID3?	The disorder of the dataset; high entropy means high uncertainty, low entropy means ordered data
+What is Information Gain in ID3?	Measures the effectiveness of a feature for classification, calculated as IG(S, A) = H(S) - Σ(|Sᵥ|/|S|)H(Sᵥ), the decrease in entropy after splitting on attribute A
+What happens when a subset in ID3 belongs to a single class?	A leaf node is created
+In the ID3 example with A1 and A2, why is A2 chosen for splitting?	A2 has higher Information Gain (1) compared to A1 (0), reducing entropy to 0 for each split
+What is the Gain Ratio in C4.5?	Normalizes Information Gain by the split information (entropy of attribute A), calculated as Gain Ratio = IG(S, A) / Split Info
+How does C4.5 handle continuous attributes?	Sorts unique values, computes thresholds at midpoints of adjacent pairs, calculates Gain Ratio for each, and chooses the highest
+In the C4.5 example with house square footage, what is the best threshold?	1400 (Gain Ratio = 0.544), as it has the highest Information Gain (0.4696) among candidates
+What are improvements of C4.5 over ID3?	Uses Gain Ratio to avoid bias toward attributes with many values, handles continuous attributes
+What is a Support Vector Machine (SVM)?	A classifier that finds the hyperplane best separating classes in feature space
+How does SVM work?	Finds support vectors (closest points to the hyperplane) and maximizes the margin between them and the hyperplane
+What are support vectors in SVM?	Data points of each class closest to the hyperplane, determining the max-margin hyperplane
+What is the margin in Linear SVM?	The distance between decision boundaries, calculated as 2 / ||w||, where w is the weight vector
+How does Linear SVM define class boundaries?	Class 1 if wᵀx + b ≥ 1, Class 2 if wᵀx + b ≤ -1, where w is the weight vector and b is the bias
+Why is there no closed-form solution for Linear SVM?	The optimization involves inequality constraints and a convex quadratic objective, solved via dual form (Lagrange multipliers)
+What is Soft Margin SVM?	An extension of SVM allowing some misclassifications using slack variables (ξᵢ)
+What do slack variables represent in Soft Margin SVM?	ξᵢ = 0 (correct side), ξᵢ ∈ (0,1] (within margin), ξᵢ > 1 (misclassified)
+What is Non-Linear SVM?	Maps input features to a higher-dimensional space via feature transformation (φ(x)) to find a separating hyperplane
+How does Non-Linear SVM separate non-linear data?	Uses a feature mapping φ to transform data into a space where a linear boundary exists
+What is the One-vs-All strategy in Multi-Class SVM?	Trains one SVM per class to separate it from the rest, predicts based on the highest score
+What is the One-vs-One strategy in Multi-Class SVM?	Trains an SVM for each pair of classes (N(N-1)/2 classifiers), predicts by majority voting
+What is the optimization target of Linear SVM?	Maximize the margin between support vectors and the hyperplane
+How does C4.5 calculate Split Information?	Entropy of the attribute itself, H(A) = -Σ(|Sᵢ|/|S|)log₂(|Sᵢ|/|S|), where Sᵢ is the subset for value i of attribute A
